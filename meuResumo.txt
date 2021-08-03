@@ -1,0 +1,390 @@
+_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+                
+                COMO CRIAR E RODAR UM PROJETO REACT
+
+1º - Instale o node 
+2º - Intale o yarn
+3º - use o seguinte comando
+
+yarn create react-app nomeDoProjeto
+
+
+Para rodar o projeto use
+
+yarn start
+
+
+OBS: Sempre que você baixar qualquer projeto react, você terá que usar o seguinte comando:
+
+yarn install 
+
+ele vai baixar o node_modules que por padrão não é upado pro servidor por causa do seu tamanho
+
+
+OBS2: Sempre que vc iniciar um novo projeto,vc pode apagar todos os arquivos da pasta public exceto o index.html e na src execeto o app.js e o index.js.
+
+
+OBS3: Quando apagar os arquvos lembre-se de deletar as linhas de codigo que estão fazendo a importacao delas no arquivo index.js e app.js
+
+
+
+
+_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+
+
+
+                ESTRUTURA MAIS SIMPLES DO REACT
+
+
+
+ReactDOM.render(
+  <React.StrictMode>
+    <h1>Olá, mundo!</h1>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+
+
+
+
+_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+
+                    FORMAS DE EXPORTAR UM ARQUIVO
+
+
+
+1º - quando o arquivo só tem uma função use "export default" antes de definir uma função.
+
+Exemplo:
+
+
+export default function Card(){
+    return(
+        <> 
+            <h1>Olá</h1>
+        </>
+    )
+
+}
+
+
+
+2º - quando existem varias funções dentro do arquivo, ao final do arquivo use "export default NomaFunção".
+
+Exemplo:
+
+function Card(){
+    return(
+        <>
+            <h1>Olá</h1>
+        </>
+    )
+}
+
+export default Card;
+
+
+OBS: Note o <> (elemento neutro) serve pra envelopar nossos elementos pois o html necessita de um pai mas na pratica não renderiza essa div imaginaria. Não é obrigatória
+
+_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+
+
+                COMO IMPORTAR UM ARQUIVO
+
+Logo após fazer a configuração de exportação no arquivo desejado, use:
+
+import NomeDaFunção from "./caminhoDoArquivo/Arquivo";
+
+Exemplo:
+
+import Card from "./Components/Card";
+
+
+
+
+
+
+
+_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+
+
+                COMO USAR UM ARQUIVO CSS 
+
+No aquivo principal da aplicação, no caso, o index.js, importe o css nela com o seguinte comando
+
+import '../src/Styles/nome.css
+
+
+_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+
+
+
+
+            PASTA Components E BOAS PRÁTICAS
+
+
+É uma boa pratica separar seus elemento dentro de pastas e dentro dele o css junto com JS. Para separar os arquivos js crie uma pasta chamada Components dentro de src. Escreva sempre o nome da pasta e de seus arquivos com a primeira letra maiuscula.
+
+
+
+
+
+
+_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+
+
+
+            COMO CRIAR UMA CLASSE CSS 
+
+
+Para criar uma classe css dentro do react atribua a tag o seguinte argumento: 
+
+className = "nomeDaClasse"
+
+Exemplo: 
+
+export default function Card(){
+    return(
+        <> 
+            <h1 className = "titulo"> Olá </h1>
+        </>
+    )
+
+}
+
+_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+
+
+
+            COMO USAR UM ARQUIVO IMPORTADO
+
+
+Depois de fazer a importação de forma correta, use <NomeDaFunção /> dentro do return 
+
+
+import App from './App';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+
+
+_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+
+
+                PASSANDO PROPS PARA OS ELEMENTOS
+
+Imagine esses códigos no mesmo arquivo
+
+
+function App(props) {
+  return (
+    <>
+
+      <div className = "card">
+          <h1> {props.nome} </h1>
+      </div>
+
+    </>
+  )
+}
+
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App nome='luiz' />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+
+        O que está acontencendo
+
+1º - Criamos uma função App que vai receber algo como parametro, por convenção chamamos de props
+2º - Nessa função retornamos um html com um placeholder que terá o props que foi passado como parametro e acessando um elmento que existe dentro dele que foi passado lá na função render
+3º - Na função que permite renderizar na tela ( React.render() ) passamos a função que criamos que retornará nosso html com um determinado conteudo passado por parametro, esse conteudo é passado da mesma forma que atribuimos uma classe 
+
+
+_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+
+
+            RECEBENDO MAIS DE UM PARAMETRO NO PROPS
+
+É bem simples, basta passar como parametro do elemento criado e acessar dentro da função que retorna o html. Perceba que para passar números vc deve abrir e fechar o placeholder
+
+function App(props) {
+  return (
+    <>
+
+      <div className = "card">
+          <h1> {props.nome} </h1>
+          <h1> {props.idade} </h1>
+
+      </div>
+
+    </>
+  )
+}
+
+
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App nome='luiz' idade={22} />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+
+
+_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+
+3:14
+
+                        USANDO O useState
+
+Ele é usado para alterar o estado de um determinado elemento 
+
+
+1º - A primeira coisa que se deve fazer é importar o useState, use:
+
+import { useState } from 'react';
+
+------------------------------------------------------------------------------------
+
+*Conceito de desestruturação
+
+Forma de atribuir um valor pra mais de uma variavel
+
+let [a, b] = 1
+
+------------------------------------------------------------------------------------
+
+2º - A segunda coisa a se fazer é atribuir a dois valores um mesmo valor. O primeiro elemento é a variavel que vai receber como parametro o valor que esta dentro da funçao useState e a segunda é a função que vai alterar esse valor
+
+
+  const [voto, setPodeVotar] = useState('Clique')
+
+
+
+3º - crie uma função  que vai fazer a lógica que vai alterer o valor padrão de voto. Observe que usamos a função criada no useState para poder alterar o valor padrão da variavel.
+
+function podeVotar(){
+    if (props.idade >= 18){
+      setPodeVotar('SIM!')
+
+    } else if (props.idade < 18){
+      setPodeVotar('NÃO!')
+    }
+  }
+
+
+4º - coloque em algum elemento a variavel criada 
+
+  <button>{voto}</button> 
+
+5º - Agora atribuia um evento a essa tag que vai receber a função que altera o valor padrao da variavel
+
+  <button onClick={ podeVotar }>{voto}</button> 
+
+
+---------------------------------------------------------------------------------------------------
+Código completo
+
+
+function App(props) {
+
+  const [voto, setPodeVotar] = useState('Clique')
+
+  function podeVotar(){
+    if (props.idade >= 18){
+      setPodeVotar('SIM!')
+
+    } else if (props.idade < 18){
+      setPodeVotar('NÃO!')
+    }
+  }
+
+
+  return (
+    <>
+
+      <div className = "card">
+          <h1> {props.nome} </h1>
+          <h1> {props.idade} </h1>
+          <h2> Clique no botão para sabe se pode votar:  <button onClick={ podeVotar }>{voto}</button> </h2>
+
+      </div>
+
+    </>
+  )
+}
+
+
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App nome='luiz' idade={22} />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+
+---------------------------------------------------------------------------------------------------
+
+
+
+_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+
+
+                    ENTENDENDO O MAP
+
+map é uma função parecida com o for, ele vai entrar em um array e retornar alguma coisa passando por cada elemento do indice(ele vai até o ultimo elemento). o nome que no caso é "elemento" poderia ser qualquer um
+
+
+
+function App(){
+  const incrementos = [1, 20, 3, 4, 5];
+
+  return (
+    <>
+      {
+        incrementos.map(elemento => {
+          return <p>{elemento}</p>
+        })
+      }
+     </>
+  )
+}
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+
+_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+
+
+            USANDO O useEffect 
+
+ele responde a um evento, sempre que algo acontece ele vai lá e faz alguma coisa, exemplo quando a pagina for carregada ele vai mostrar um alert
+
+
+1º Importe o useEffect usando: 
+
+
+import { useEffect } from 'react';
+
+useEffect( () => {
+  alert('fui renderizado')
+})
+
+--- parei na aula 11 que é a aula do pokedex
